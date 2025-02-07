@@ -75,7 +75,7 @@ export const HomePageContainer = styled.section`
     }
   }
 
-  @media (max-height: 525px) {
+  @media (max-height: 595px) {
     .text-container {
       padding-top: 250px;
     }
