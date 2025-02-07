@@ -33,7 +33,7 @@ function Footer() {
           <FooterLink>
             <FooterItem>
               <FooterIcon src={instagramIcon} alt="Ícone de Instagram" className="footer-icon" />
-              <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.instagram.com/europaacessorios/" target="_blank" rel="noopener noreferrer">
                 Instagram
               </a>
             </FooterItem>
