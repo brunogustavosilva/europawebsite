@@ -69,6 +69,18 @@ export const HomePageContainer = styled.section`
     }
   }
 
+    @media (max-height: 700px) {
+    .text-container {
+      padding-top: 100px;
+    }
+  }
+
+  @media (max-height: 525px) {
+    .text-container {
+      padding-top: 250px;
+    }
+  }
+
   @media (max-width: 534px) {
     .button {
       width: 300px;
