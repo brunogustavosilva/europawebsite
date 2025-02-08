@@ -69,13 +69,13 @@ export const HomePageContainer = styled.section`
     }
   }
 
-  @media (max-height: 700px) {
+    @media (max-height: 700px) {
     .text-container {
       padding-top: 100px;
     }
   }
 
-  @media (max-height: 525px) {
+  @media (max-height: 595px) {
     .text-container {
       padding-top: 250px;
     }
