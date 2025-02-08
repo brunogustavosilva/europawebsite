@@ -9,7 +9,7 @@ import whatsapp from '../../assets/whatsapp.svg';
 
 function NavbarComponent() {
   const handleClick = () => {
-    window.open('https://wa.link/viq6y1', '_blank');
+    window.open('https://wa.me/5541998626862?text=Ol%C3%A1%20vim%20pelo%20seu%20site', '_blank');
   };
 
   return (

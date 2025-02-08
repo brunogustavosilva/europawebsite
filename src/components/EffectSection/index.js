@@ -25,7 +25,7 @@ function EffectSection() {
         <p>
           Explore os efeitos visuais que podem transformar sua experiência em eventos e momentos especiais.
         </p>
-        <a className="button" target="_blank" href="https://wa.link/viq6y1" rel="noreferrer">
+        <a className="button" target="_blank" href="https://wa.me/5541998626862?text=Ol%C3%A1%20vim%20pelo%20seu%20site" rel="noreferrer">
           <img src={wpp} alt="" className="whatsappIcon" />
           Entrar em contato
         </a>
