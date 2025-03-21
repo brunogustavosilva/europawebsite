@@ -66,7 +66,7 @@ export const FooterLink = styled.div`
     transition: color 0.3s ease-in-out;
 
     &:hover {
-      color: #f39c12;
+      color:rgb(25, 0, 255);
     }
   }
 `;

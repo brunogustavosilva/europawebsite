@@ -28,7 +28,7 @@ function Footer() {
         <FooterColumn>
           <h3>Horário de Atendimento</h3>
           <FooterItem>
-            <p>Quinta á terça: 10h - 18h</p>
+            <p>Seg - Sex: 7h - 19h, Sábado até as 18h</p>
           </FooterItem>
           <FooterLink>
             <FooterItem>
