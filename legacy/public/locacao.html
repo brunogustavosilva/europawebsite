@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Revise os equipamentos e informe os dados da sua locação Euro Light.">
+    <title>Itens da locação | Euro Light</title>
+    <link rel="icon" type="image/png" href="/src/assets/logoeurolight.png">
+    <link rel="stylesheet" href="/src/css/index.css">
+    <link rel="stylesheet" href="/src/css/locacao.css">
+    <script type="module" src="/src/scripts/locacao.js"></script>
+</head>
+<body class="rental-page">
+    <main class="rental-panel" aria-labelledby="rental-page-title">
+        <header class="rental-header">
+            <a class="rental-back" href="/public/equipamentos.html" aria-label="Voltar para os equipamentos">
+                <span aria-hidden="true">←</span> Voltar
+            </a>
+            <img class="rental-logo" src="/src/assets/logoeurolight.png" alt="Euro Light">
+            <h1 id="rental-page-title">Itens da locação</h1>
+        </header>
+
+        <section class="rental-items" id="rental-items" aria-label="Equipamentos selecionados"></section>
+        <p class="rental-empty" id="rental-empty" hidden>
+            Sua sacola está vazia. <a href="/public/equipamentos.html">Volte ao catálogo para escolher equipamentos.</a>
+        </p>
+
+        <div class="rental-total" aria-live="polite">
+            <img src="/src/assets/coins-alt-svgrepo-com.svg" alt="" aria-hidden="true">
+            <span>Valor total da locação</span>
+            <strong id="rental-total">R$ 0,00</strong>
+        </div>
+
+        <form class="rental-form" id="rental-form">
+            <fieldset class="rental-services">
+                <legend>Serviços desejados</legend>
+                <label class="rental-service-option">
+                    <input id="installation-option" type="checkbox">
+                    <span>Instalação</span>
+                </label>
+                <label class="rental-service-option">
+                    <input id="delivery-option" type="checkbox">
+                    <span>Entrega</span>
+                </label>
+            </fieldset>
+
+            <div class="rental-fields">
+                <label class="rental-field" for="rental-date">
+                    <span class="rental-field-label">
+                        <img src="/src/assets/calendar-days-svgrepo-com.svg" alt="" aria-hidden="true">
+                        Data da locação
+                    </span>
+                    <span class="rental-input-wrap">
+                        <img src="/src/assets/calendar-days-svgrepo-com.svg" alt="" aria-hidden="true">
+                        <input id="rental-date" name="date" type="text" inputmode="numeric" placeholder="DD/MM/AAAA" autocomplete="off" maxlength="10" pattern="(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[0-2])/[0-9]{4}" aria-describedby="date-help" required>
+                    </span>
+                    <small class="date-help" id="date-help">Formato: dia / mês / ano</small>
+                </label>
+
+                <label class="rental-field" for="delivery-address">
+                    <span class="rental-field-label">
+                        <img src="/src/assets/location-pin-svgrepo-com.svg" alt="" aria-hidden="true">
+                        Endereço de entrega
+                    </span>
+                    <span class="rental-input-wrap" id="delivery-field-wrap">
+                        <img src="/src/assets/location-pin-svgrepo-com.svg" alt="" aria-hidden="true">
+                        <input id="delivery-address" name="address" type="text" placeholder="rua, número e bairro" autocomplete="street-address" minlength="6" aria-describedby="delivery-help" disabled>
+                    </span>
+                    <small class="delivery-help" id="delivery-help">Marque entrega ou instalação para informar o endereço.</small>
+                </label>
+            </div>
+
+            <button class="rental-submit" type="submit" aria-label="Solicitar locação pelo WhatsApp">
+                <img src="/src/assets/white-whatsapp.png" alt="" aria-hidden="true">
+                <span>Solicitar locação</span>
+            </button>
+        </form>
+
+        <p class="rental-document-notice">
+            <img src="/src/assets/danger-zone-svgrepo-com.svg" alt="" aria-hidden="true">
+            <span>No dia da locação é realizado um contrato. Se atente à <strong>documentação necessária.</strong></span>
+        </p>
+    </main>
+</body>
+</html>

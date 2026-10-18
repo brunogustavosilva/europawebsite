@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="35 -25 1240 1240" width="1240" height="1240" role="img" aria-labelledby="logoTitle">
+  <title id="logoTitle">Logo €L</title>
+  <defs>
+    <!-- Gradients (userSpaceOnUse so they flow across the whole mark) -->
+    <linearGradient id="gRing" gradientUnits="userSpaceOnUse" x1="170" y1="70" x2="1150" y2="1130">
+      <stop offset="0" stop-color="#FFD83D"/>
+      <stop offset="0.38" stop-color="#FFA51F"/>
+      <stop offset="0.68" stop-color="#FF3D1F"/>
+      <stop offset="1" stop-color="#E0002B"/>
+    </linearGradient>
+    <linearGradient id="gEuro" gradientUnits="userSpaceOnUse" x1="300" y1="230" x2="640" y2="950">
+      <stop offset="0" stop-color="#FFE98A"/>
+      <stop offset="0.45" stop-color="#F9C440"/>
+      <stop offset="1" stop-color="#D98A12"/>
+    </linearGradient>
+    <linearGradient id="gL" gradientUnits="userSpaceOnUse" x1="820" y1="295" x2="1060" y2="935">
+      <stop offset="0" stop-color="#FFC61A"/>
+      <stop offset="0.45" stop-color="#FF6B12"/>
+      <stop offset="1" stop-color="#E4002B"/>
+    </linearGradient>
+    <linearGradient id="gGlossL" gradientUnits="userSpaceOnUse" x1="0" y1="295" x2="0" y2="700">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.4"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Clean gap around the L: rounded for the ring, straight-cut for the euro sign -->
+    <mask id="mGapRing" maskUnits="userSpaceOnUse" x="-100" y="-100" width="1500" height="1500">
+      <rect x="-100" y="-100" width="1500" height="1500" fill="#fff"/>
+      <polygon points="890,295 1018,295 780,825 1180,825 1085,935 583,935"
+               fill="#000" stroke="#000" stroke-width="70" stroke-linejoin="round"/>
+    </mask>
+    <mask id="mGapEuro" maskUnits="userSpaceOnUse" x="-100" y="-100" width="1500" height="1500">
+      <rect x="-100" y="-100" width="1500" height="1500" fill="#fff"/>
+      <polygon points="890,295 1018,295 780,825 1180,825 1085,935 583,935"
+               fill="#000" stroke="#000" stroke-width="70" stroke-linejoin="miter" stroke-miterlimit="4"/>
+    </mask>
+  </defs>
+
+  <!-- Ring -->
+  <g mask="url(#mGapRing)">
+    <circle cx="655" cy="595" r="540" fill="none" stroke="url(#gRing)" stroke-width="40"/>
+  </g>
+
+  <!-- Euro sign -->
+  <g mask="url(#mGapEuro)">
+    <path d="M811.6 326.4 A305 305 0 1 0 744.2 875.1" fill="none" stroke="url(#gEuro)" stroke-width="110"/>
+    <polygon points="226,478 714,478 682,552 192,552" fill="url(#gEuro)"/>
+    <polygon points="222,604 652,604 620,678 188,678" fill="url(#gEuro)"/>
+  </g>
+
+  <!-- L -->
+  <polygon points="890,295 1018,295 780,825 1180,825 1085,935 583,935" fill="url(#gL)"/>
+  <polygon points="890,295 1018,295 780,825 1180,825 1085,935 583,935" fill="url(#gGlossL)"/>
+</svg>

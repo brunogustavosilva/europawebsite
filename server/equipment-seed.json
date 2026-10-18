@@ -1,0 +1,38 @@
+[
+  {
+    "id": "maquina-de-fumaca",
+    "categorias": [
+      "luzes"
+    ],
+    "nome": "Máquina de fumaça",
+    "descricao": "Destaca os feixes das luzes.",
+    "ideal": "Festas e baladas",
+    "preco": 50,
+    "periodo": "fim de semana",
+    "popularidade": 100
+  },
+  {
+    "id": "mooving-head",
+    "categorias": [
+      "luzes"
+    ],
+    "nome": "Moving Head Spotlight",
+    "descricao": "Iluminação estilo show.",
+    "ideal": "Apresentações e shows",
+    "preco": 80,
+    "periodo": "fim de semana",
+    "popularidade": 100
+  },
+  {
+    "id": "barra-de-luz-negra",
+    "categorias": [
+      "luzes"
+    ],
+    "nome": "Ribalta de luz negra",
+    "descricao": "Destaca os feixes das luzes.",
+    "ideal": "Festas e baladas",
+    "preco": 20,
+    "periodo": "fim de semana",
+    "popularidade": 100
+  }
+]

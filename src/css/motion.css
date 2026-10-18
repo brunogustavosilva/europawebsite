@@ -1,0 +1,94 @@
+:root {
+    --motion-enter: 440ms;
+    --motion-exit: 240ms;
+}
+
+.reveal {
+    opacity: 1;
+    /* Mantém os limites observados estáveis durante a animação. */
+    transition: opacity var(--motion-enter) ease-out var(--reveal-delay, 0ms);
+}
+
+.reveal[data-visible='false'] {
+    opacity: 0;
+    transition-duration: var(--motion-exit);
+    transition-timing-function: ease-in;
+    transition-delay: 0ms;
+}
+
+/* Conteúdo alcançado por teclado continua visível mesmo fora do observer. */
+.reveal:focus-within {
+    opacity: 1 !important;
+    transform: none !important;
+}
+
+.presence-item {
+    min-width: 0;
+    animation: element-enter var(--motion-enter) ease-out both;
+}
+
+.presence-item[data-present='false'] {
+    pointer-events: none;
+    animation: element-exit var(--motion-exit) ease-in both;
+}
+
+.equipment-preview {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--motion-exit) ease-in;
+}
+
+.equipment-preview[data-visible='true'] {
+    opacity: 1;
+    transition-duration: var(--motion-enter);
+    transition-timing-function: ease-out;
+}
+
+.drawer[data-phase='entering']::backdrop {
+    animation: backdrop-enter 360ms ease-out both;
+}
+
+.drawer[data-phase='exiting']::backdrop {
+    animation: backdrop-exit 240ms ease-in both;
+}
+
+@keyframes element-enter {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes element-exit {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+}
+
+@keyframes backdrop-enter {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes backdrop-exit {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .reveal {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}

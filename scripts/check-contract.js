@@ -1,0 +1,67 @@
+import assert from 'node:assert/strict';
+import { readFile, writeFile } from 'node:fs/promises';
+import { chromium } from 'playwright';
+import { unzipSync, strFromU8 } from 'fflate';
+import '../server/env.js';
+
+assert.equal(process.env.ALLOW_ADMIN_FIXTURES,'1');
+assert.ok(process.env.NEON_BRANCH?.startsWith('dev-'));
+assert.ok(process.env.ADMIN_TEST_PASSWORD);
+const base = process.env.TEST_BASE_URL || 'http://localhost:5182';
+const browser = await chromium.launch();
+try {
+    const context = await browser.newContext({ viewport:{width:1440,height:1000}, acceptDownloads:true });
+    const http = context.request;
+    const unauth = await http.get(`${base}/api/admin/rentals/00000000-0000-0000-0000-000000000000/contract`);
+    assert.equal(unauth.status(),401);
+    assert.equal((await http.post(`${base}/api/admin/login`,{data:{username:process.env.ADMIN_USERNAME,password:process.env.ADMIN_TEST_PASSWORD}})).status(),200);
+    async function create(path, data) {
+        const response = await http.post(`${base}/api/admin${path}`,{data});
+        const body = await response.json(); assert.equal(response.status(),201,JSON.stringify(body)); return body;
+    }
+    const initial = await(await http.get(`${base}/api/admin/dashboard`)).json();
+    const suffix=Date.now();
+    const equipment=await create('/equipment',{nome:`Teste contrato ${suffix}`,stock:2,preco:'50',unit_cost:'180',voltage:'bivolt',tag:'visual'});
+    const rental=await create('/rentals',{customer_name:`Cadastro original ${suffix}`,cpf:'00000000000',phone:'41999999999',address:'Endereço original, 100',rental_date:initial.today,total:'100',deposit:'20',delivery:true,status:'prevista',items:[{equipment_id:equipment.id,quantity:2}]});
+    const before=(await(await http.get(`${base}/api/admin/dashboard`)).json()).rentals.find((item)=>item.id===rental.id);
+    const draft=await(await http.get(`${base}/api/admin/rentals/${rental.id}/contract`)).json();
+    assert.equal(draft.draft.customer_name,before.customer_name);
+    assert.equal(draft.draft.items[0].unit_cost,180);
+    const page=await context.newPage();const errors=[];page.on('pageerror',error=>errors.push(error.message));
+    await page.goto(`${base}/admin`);
+    await page.getByRole('button',{name:before.customer_name,exact:true}).click();
+    const dialog=page.getByRole('dialog');
+    await dialog.getByRole('button',{name:'Realizar contrato',exact:true}).click();
+    await dialog.getByLabel('Nome do cliente',{exact:true}).fill('Nome somente no contrato');
+    await dialog.getByLabel('Endereço do cliente',{exact:true}).fill('Endereço somente no contrato, 200');
+    await dialog.getByLabel('Valor total do contrato (R$)',{exact:true}).fill('80');
+    const downloadPromise=page.waitForEvent('download');
+    await dialog.getByRole('button',{name:'Baixar contrato ODT',exact:true}).click();
+    const download=await downloadPromise;
+    assert.ok(download.suggestedFilename().endsWith('.odt'));
+    const bytes=await readFile(await download.path());
+    const xml=strFromU8(unzipSync(bytes)['content.xml']);
+    assert.ok(xml.includes('Nome somente no contrato'));
+    assert.ok(xml.includes('Endereço somente no contrato, 200'));
+    assert.ok(!xml.includes('Nome Provisório'));
+    assert.ok(xml.includes('80,00'));
+    await writeFile('/tmp/eurolight-contract-browser.odt',bytes);
+    const previewResponse=page.waitForResponse(response=>response.url().includes(`/rentals/${rental.id}/contract?format=html`));
+    await dialog.getByRole('button',{name:'Visualizar / Imprimir',exact:true}).click();
+    assert.equal((await previewResponse).status(),200);
+    const preview=page.frameLocator('iframe[title="Prévia do contrato"]');
+    await preview.getByText('LOCATÁRIO(A): Nome somente no contrato',{exact:false}).waitFor();
+    await dialog.getByRole('button',{name:'Imprimir / Salvar PDF',exact:true}).waitFor();
+    await page.locator('iframe').evaluate(frame=>{frame.contentWindow.print=()=>{window.printWasCalled=true;};});
+    await dialog.getByRole('button',{name:'Imprimir / Salvar PDF',exact:true}).click();
+    assert.equal(await page.evaluate(()=>window.printWasCalled),true);
+    await dialog.evaluate(async element=>{await Promise.all(element.getAnimations().map(animation=>animation.finished));});
+    await page.screenshot({path:'/tmp/eurolight-contract-window.png'});
+    await dialog.getByRole('button',{name:'Voltar aos dados',exact:true}).click();
+    assert.equal(await dialog.getByLabel('Nome do cliente',{exact:true}).inputValue(),'Nome somente no contrato');
+    const after=(await(await http.get(`${base}/api/admin/dashboard`)).json()).rentals.find((item)=>item.id===rental.id);
+    assert.deepEqual(after,before);
+    assert.deepEqual(errors,[]);
+    console.log('PASS contrato: botão abre dados da locação, ODT preenchido baixa e prévia permite imprimir/PDF');
+    console.log('PASS isolamento: nome, endereço e valor editados no contrato não alteram a locação, itens ou indicadores');
+} finally { await browser.close(); }

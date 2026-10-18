@@ -1,0 +1,186 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <defs>
+    <!-- Metal / body gradients -->
+    <linearGradient id="bodyV" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#666c7c"/>
+      <stop offset="0.10" stop-color="#2f3340"/>
+      <stop offset="0.45" stop-color="#15171d"/>
+      <stop offset="0.85" stop-color="#08090c"/>
+      <stop offset="1" stop-color="#262a35"/>
+    </linearGradient>
+    <linearGradient id="hoodV" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#7b8294"/>
+      <stop offset="0.12" stop-color="#3a3f4e"/>
+      <stop offset="0.5" stop-color="#1b1e26"/>
+      <stop offset="0.9" stop-color="#0b0c10"/>
+      <stop offset="1" stop-color="#2e3340"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff4c9"/>
+      <stop offset="0.3" stop-color="#f0cb72"/>
+      <stop offset="0.65" stop-color="#b6842f"/>
+      <stop offset="1" stop-color="#f7e09c"/>
+    </linearGradient>
+    <linearGradient id="goldH" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#8f6420"/>
+      <stop offset="0.25" stop-color="#fff0b8"/>
+      <stop offset="0.55" stop-color="#d4a64a"/>
+      <stop offset="1" stop-color="#7a5217"/>
+    </linearGradient>
+    <linearGradient id="armG" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#0c0d11"/>
+      <stop offset="0.2" stop-color="#2d313d"/>
+      <stop offset="0.38" stop-color="#4d5465"/>
+      <stop offset="0.55" stop-color="#1c1f27"/>
+      <stop offset="1" stop-color="#07080a"/>
+    </linearGradient>
+    <linearGradient id="armFar" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#050608"/>
+      <stop offset="0.4" stop-color="#171a21"/>
+      <stop offset="1" stop-color="#050608"/>
+    </linearGradient>
+    <linearGradient id="baseG" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#07080a"/>
+      <stop offset="0.22" stop-color="#2a2e3a"/>
+      <stop offset="0.38" stop-color="#555c6e"/>
+      <stop offset="0.6" stop-color="#171a21"/>
+      <stop offset="1" stop-color="#050608"/>
+    </linearGradient>
+    <radialGradient id="baseTop" cx="0.4" cy="0.35" r="0.8">
+      <stop offset="0" stop-color="#5b6274"/>
+      <stop offset="0.6" stop-color="#1d2028"/>
+      <stop offset="1" stop-color="#0a0b0e"/>
+    </radialGradient>
+
+    <!-- Light -->
+    <radialGradient id="lens" cx="0.45" cy="0.5" r="0.62">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="0.28" stop-color="#fff3c2"/>
+      <stop offset="0.55" stop-color="#ffc45a"/>
+      <stop offset="0.8" stop-color="#ff5fae"/>
+      <stop offset="1" stop-color="#6a3cff"/>
+    </radialGradient>
+    <radialGradient id="halo" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#fff2c0" stop-opacity="0.95"/>
+      <stop offset="0.3" stop-color="#ffc25a" stop-opacity="0.55"/>
+      <stop offset="0.65" stop-color="#ff5fae" stop-opacity="0.16"/>
+      <stop offset="1" stop-color="#ff5fae" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="beam" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#fff7d6" stop-opacity="0.9"/>
+      <stop offset="0.35" stop-color="#ffd98a" stop-opacity="0.38"/>
+      <stop offset="0.75" stop-color="#ff7ad9" stop-opacity="0.10"/>
+      <stop offset="1" stop-color="#ff7ad9" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="beamCore" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.95"/>
+      <stop offset="0.5" stop-color="#fff0b8" stop-opacity="0.25"/>
+      <stop offset="1" stop-color="#fff0b8" stop-opacity="0"/>
+    </linearGradient>
+
+    <filter id="blur6" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="6"/></filter>
+    <filter id="blur14" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="14"/></filter>
+    <filter id="blur30" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="30"/></filter>
+    <filter id="blur3"><feGaussianBlur stdDeviation="2.5"/></filter>
+  </defs>
+
+  <!-- Contact shadow -->
+  <ellipse cx="512" cy="905" rx="250" ry="30" fill="#000" opacity="0.32" filter="url(#blur14)"/>
+
+  <!-- ============ BASE ============ -->
+  <path d="M312 806 L312 858 A200 50 0 0 0 712 858 L712 806 Z" fill="url(#baseG)"/>
+  <!-- gold ring on base -->
+  <path d="M316 836 A196 49 0 0 0 708 836" fill="none" stroke="url(#goldH)" stroke-width="7" stroke-linecap="round"/>
+  <path d="M316 836 A196 49 0 0 0 708 836" fill="none" stroke="#fff" stroke-opacity="0.25" stroke-width="1.5" transform="translate(0 -3)"/>
+  <!-- rim highlight -->
+  <path d="M316 812 L316 856" stroke="#8d95a8" stroke-opacity="0.45" stroke-width="2"/>
+  <!-- base top -->
+  <ellipse cx="512" cy="806" rx="200" ry="50" fill="url(#baseTop)"/>
+  <ellipse cx="512" cy="806" rx="200" ry="50" fill="none" stroke="#8d95a8" stroke-opacity="0.35" stroke-width="1.5"/>
+  <ellipse cx="512" cy="800" rx="128" ry="32" fill="#0a0b0e"/>
+  <ellipse cx="512" cy="800" rx="128" ry="32" fill="none" stroke="url(#goldH)" stroke-width="4"/>
+
+
+  <!-- ============ HEAD (rotated) ============ -->
+  <g transform="translate(512 440) rotate(-25)">
+    <!-- halo behind lens -->
+    <ellipse cx="200" cy="0" rx="230" ry="230" fill="url(#halo)" opacity="0.8"/>
+    <!-- beam -->
+    <polygon points="190,-100 400,-190 400,190 190,100" fill="url(#beam)" filter="url(#blur14)"/>
+    <polygon points="190,-56 380,-100 380,100 190,56" fill="url(#beamCore)" filter="url(#blur14)"/>
+
+    <!-- rear cap -->
+    <rect x="-212" y="-98" width="46" height="196" rx="22" fill="url(#bodyV)"/>
+    <!-- main body -->
+    <rect x="-190" y="-116" width="300" height="232" rx="42" fill="url(#bodyV)"/>
+    <!-- cooling fins -->
+    <g>
+      <rect x="-180" y="-100" width="7" height="200" rx="3.5" fill="#000" opacity="0.55"/>
+      <rect x="-160" y="-104" width="7" height="208" rx="3.5" fill="#000" opacity="0.55"/>
+      <rect x="-140" y="-106" width="7" height="212" rx="3.5" fill="#000" opacity="0.55"/>
+      <rect x="-120" y="-107" width="7" height="214" rx="3.5" fill="#000" opacity="0.55"/>
+      <rect x="-100" y="-107" width="7" height="214" rx="3.5" fill="#000" opacity="0.45"/>
+      <rect x="-173" y="-100" width="2" height="200" fill="#8d95a8" opacity="0.25"/>
+      <rect x="-153" y="-104" width="2" height="208" fill="#8d95a8" opacity="0.25"/>
+      <rect x="-133" y="-106" width="2" height="212" fill="#8d95a8" opacity="0.25"/>
+      <rect x="-113" y="-107" width="2" height="214" fill="#8d95a8" opacity="0.25"/>
+    </g>
+    <!-- glossy top edge -->
+    <rect x="-170" y="-104" width="270" height="12" rx="6" fill="#fff" opacity="0.22"/>
+    <rect x="-150" y="-86" width="200" height="4" rx="2" fill="#fff" opacity="0.08"/>
+    <!-- bottom rim light -->
+    <rect x="-165" y="96" width="260" height="5" rx="2.5" fill="#9aa3ff" opacity="0.28"/>
+
+    <!-- gold collar -->
+    <rect x="98" y="-124" width="20" height="248" rx="9" fill="url(#gold)"/>
+    <rect x="98" y="-124" width="20" height="248" rx="9" fill="none" stroke="#fff" stroke-opacity="0.3" stroke-width="1"/>
+
+    <!-- front hood -->
+    <rect x="114" y="-134" width="72" height="268" rx="26" fill="url(#hoodV)"/>
+    <rect x="124" y="-122" width="52" height="8" rx="4" fill="#fff" opacity="0.2"/>
+    <rect x="114" y="-134" width="14" height="268" rx="7" fill="#000" opacity="0.18"/>
+
+    <!-- lens face -->
+    <ellipse cx="184" cy="0" rx="42" ry="134" fill="url(#hoodV)"/>
+    <ellipse cx="184" cy="0" rx="42" ry="134" fill="none" stroke="url(#goldH)" stroke-width="7"/>
+    <ellipse cx="184" cy="0" rx="35" ry="118" fill="#06060a"/>
+    <ellipse cx="184" cy="0" rx="31" ry="108" fill="url(#lens)"/>
+    <ellipse cx="184" cy="0" rx="22" ry="76" fill="none" stroke="#fff" stroke-opacity="0.35" stroke-width="1.5"/>
+    <ellipse cx="184" cy="0" rx="13" ry="46" fill="none" stroke="#fff" stroke-opacity="0.45" stroke-width="1.5"/>
+    <ellipse cx="184" cy="0" rx="7" ry="22" fill="#fff" opacity="0.85" filter="url(#blur3)"/>
+    <!-- specular glint -->
+    <ellipse cx="172" cy="-66" rx="6" ry="24" fill="#fff" opacity="0.85" transform="rotate(8 172 -66)"/>
+    <ellipse cx="196" cy="62" rx="3.5" ry="12" fill="#fff" opacity="0.55"/>
+  </g>
+
+  <!-- ============ NEAR ARM ============ -->
+  <path d="M437 800 C437 700 470 570 470 478 A42 42 0 0 1 554 478 C554 570 587 700 587 800 Z" fill="url(#armG)"/>
+  <path d="M437 800 C437 700 470 570 470 478" fill="none" stroke="#9aa3b8" stroke-opacity="0.4" stroke-width="2"/>
+  <path d="M458 780 C458 690 490 570 490 482" fill="none" stroke="#fff" stroke-opacity="0.14" stroke-width="5" stroke-linecap="round"/>
+  <!-- arm foot gold band -->
+  <path d="M439 782 Q512 806 585 782" fill="none" stroke="url(#goldH)" stroke-width="7" stroke-linecap="round"/>
+  <!-- pivot cap -->
+  <circle cx="512" cy="440" r="40" fill="url(#armG)"/>
+  <circle cx="512" cy="440" r="40" fill="none" stroke="url(#goldH)" stroke-width="6"/>
+  <circle cx="512" cy="440" r="24" fill="url(#gold)"/>
+  <circle cx="512" cy="440" r="14" fill="#14161c"/>
+  <circle cx="506" cy="434" r="4" fill="#fff" opacity="0.7"/>
+
+  <!-- Lens flare on top of everything -->
+  <g transform="translate(672 366)">
+    <ellipse rx="70" ry="70" fill="url(#halo)" filter="url(#blur6)" opacity="0.8"/>
+    <path d="M0 -70 L6 -6 L70 0 L6 6 L0 70 L-6 6 L-70 0 L-6 -6 Z" fill="#fff" opacity="0.9"/>
+  </g>
+
+  <!-- Sparkles / confetti -->
+  <g fill="#fff">
+    <path d="M840 220 l5 -26 l5 26 l26 5 l-26 5 l-5 26 l-5 -26 l-26 -5 Z" opacity="0.95"/>
+    <path d="M905 330 l3 -14 l3 14 l14 3 l-14 3 l-3 14 l-3 -14 l-14 -3 Z" fill="#ffd98a" opacity="0.9"/>
+    <path d="M770 150 l3 -14 l3 14 l14 3 l-14 3 l-3 14 l-3 -14 l-14 -3 Z" fill="#ff8ad0" opacity="0.9"/>
+  </g>
+  <circle cx="885" cy="250" r="5" fill="#ffd98a"/>
+  <circle cx="800" cy="300" r="4" fill="#ff7ad9"/>
+  <circle cx="930" cy="200" r="3.5" fill="#fff"/>
+  <circle cx="740" cy="230" r="3" fill="#a98bff"/>
+  <circle cx="870" cy="400" r="3" fill="#fff" opacity="0.8"/>
+</svg>
