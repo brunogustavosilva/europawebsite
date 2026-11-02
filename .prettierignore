@@ -1,0 +1,13 @@
+node_modules/
+dist/
+legacy/
+src/assets/
+private/
+.env*
+.neon
+.agents/
+.aws/
+.codex/
+.vercel/
+package-lock.json
+server/video-manifest.json

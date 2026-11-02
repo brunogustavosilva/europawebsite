@@ -1,0 +1,13 @@
+node_modules/
+dist/
+.env
+.env.*
+!.env.example
+.neon
+README.md
+.agents/
+.aws/
+.codex/
+.vercel/
+
+README-PROJETO.md

@@ -1,0 +1,284 @@
+#locar {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    padding: clamp(64px, 9vw, 124px) 40px;
+    background:
+        radial-gradient(ellipse at 50% 0%, rgba(49, 30, 23, .32), transparent 60%),
+        #0f0f0f;
+}
+
+.glow {
+    position: absolute;
+    z-index: -1;
+    width: 480px;
+    height: 480px;
+    border-radius: 50%;
+    filter: blur(180px);
+    opacity: .65;
+    pointer-events: none;
+}
+
+.glow-blue {
+    right: -260px;
+    bottom: -230px;
+    background: #111d83;
+}
+
+.glow-red {
+    left: -270px;
+    bottom: -240px;
+    background: #771f0c;
+}
+
+.booking-cta {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(270px, .85fr);
+    align-items: center;
+    gap: clamp(30px, 6vw, 90px);
+    width: min(100%, 1180px);
+    min-height: 470px;
+    margin: 0 auto;
+    padding: clamp(38px, 6vw, 76px);
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, .14);
+    border-radius: 28px;
+    background:
+        radial-gradient(ellipse at 80% 48%, rgba(255, 157, 0, .09), transparent 42%),
+        linear-gradient(115deg, rgba(31, 24, 22, .98), rgba(17, 18, 29, .98));
+    box-shadow: 0 28px 90px rgba(0, 0, 0, .45), inset 0 1px rgba(255, 255, 255, .05);
+}
+
+.booking-copy {
+    position: relative;
+    z-index: 1;
+    max-width: 620px;
+}
+
+.booking-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    color: #d9a74e;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: .16em;
+}
+
+.booking-eyebrow span,
+.showcase-label span {
+    width: 7px;
+    height: 7px;
+    flex: none;
+    border-radius: 50%;
+    background: #ffb12a;
+    box-shadow: 0 0 14px rgba(255, 177, 42, .9);
+}
+
+.booking-copy h2 {
+    max-width: 610px;
+    color: #f5f2ee;
+    font-size: clamp(38px, 5.2vw, 64px);
+    font-weight: 700;
+    letter-spacing: -.055em;
+    line-height: 1.04;
+    text-shadow: none;
+}
+
+.booking-description {
+    max-width: 520px;
+    margin-top: 20px;
+    color: rgba(238, 235, 232, .72);
+    font-size: clamp(16px, 1.6vw, 19px);
+    font-weight: 400;
+    line-height: 1.7;
+}
+
+.booking-cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 32px;
+    min-height: 58px;
+    margin-top: 32px;
+    padding: 0 9px 0 24px;
+    border: 1px solid rgba(255, 190, 73, .8);
+    border-radius: 10px;
+    background: linear-gradient(135deg, #ffb12a, #e89508);
+    color: #17120a;
+    font-size: 15px;
+    font-weight: 800;
+    box-shadow: 0 12px 32px rgba(232, 149, 8, .2);
+    text-shadow: none;
+    transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
+}
+
+.booking-cta-button:hover {
+    transform: translateY(-2px);
+    background: linear-gradient(135deg, #ffc45b, #f0a319);
+    color: #17120a;
+    box-shadow: 0 16px 38px rgba(232, 149, 8, .32);
+}
+
+.booking-arrow {
+    display: grid;
+    width: 38px;
+    height: 38px;
+    place-items: center;
+    border-radius: 7px;
+    background: rgba(23, 18, 10, .1);
+    font-size: 22px;
+    line-height: 1;
+}
+
+.booking-note {
+    margin-top: 15px;
+    color: rgba(238, 235, 232, .48);
+    font-size: 12px;
+}
+
+.booking-showcase {
+    position: relative;
+    display: grid;
+    width: min(100%, 370px);
+    aspect-ratio: 1;
+    place-items: center;
+    justify-self: center;
+    border: 1px solid rgba(255, 255, 255, .1);
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 255, 255, .055), rgba(255, 255, 255, .01) 60%, transparent 70%);
+}
+
+.showcase-glow {
+    position: absolute;
+    width: 46%;
+    height: 46%;
+    border-radius: 50%;
+    background: rgba(255, 157, 0, .28);
+    filter: blur(55px);
+}
+
+.showcase-ring {
+    position: absolute;
+    border: 1px solid rgba(255, 255, 255, .11);
+    border-radius: 50%;
+}
+
+.showcase-ring-outer {
+    inset: 8%;
+}
+
+.showcase-ring-inner {
+    inset: 19%;
+    border-color: rgba(255, 177, 42, .17);
+}
+
+.booking-showcase > img {
+    position: relative;
+    z-index: 1;
+    width: 42%;
+    height: auto;
+    opacity: .9;
+    filter: drop-shadow(0 0 22px rgba(255, 255, 255, .16));
+    transform: rotate(-8deg);
+}
+
+.showcase-label {
+    position: absolute;
+    z-index: 2;
+    right: -2%;
+    bottom: 18%;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 12px 15px;
+    border: 1px solid rgba(255, 255, 255, .12);
+    border-radius: 999px;
+    background: rgba(16, 17, 24, .82);
+    color: #e5e0d7;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: .08em;
+    white-space: nowrap;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .25);
+    backdrop-filter: blur(12px);
+}
+
+.showcase-label span {
+    width: 6px;
+    height: 6px;
+}
+
+@media (max-width: 900px) {
+    #locar {
+        padding: 64px 28px;
+    }
+
+    .booking-cta {
+        grid-template-columns: minmax(0, 1fr) minmax(220px, .7fr);
+        gap: 25px;
+        min-height: 420px;
+        padding: 46px;
+    }
+
+    .booking-showcase {
+        width: min(100%, 300px);
+    }
+
+    .showcase-label {
+        right: -8%;
+        font-size: 8px;
+    }
+}
+
+@media (max-width: 680px) {
+    #locar {
+        padding: 42px 18px;
+    }
+
+    .booking-cta {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        min-height: 0;
+        padding: 32px 25px 28px;
+        border-radius: 22px;
+    }
+
+    .booking-eyebrow {
+        margin-bottom: 16px;
+        font-size: 10px;
+    }
+
+    .booking-copy h2 {
+        font-size: clamp(36px, 10vw, 50px);
+    }
+
+    .booking-description {
+        margin-top: 15px;
+        font-size: 16px;
+        line-height: 1.6;
+    }
+
+    .booking-cta-button {
+        width: 100%;
+        justify-content: space-between;
+        margin-top: 25px;
+    }
+
+    .booking-showcase {
+        width: min(76vw, 270px);
+    }
+
+    .showcase-label {
+        right: -9%;
+        bottom: 14%;
+        padding: 10px 12px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .booking-cta-button {
+        transition: none;
+    }
+}

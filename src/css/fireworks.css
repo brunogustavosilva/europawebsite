@@ -1,0 +1,48 @@
+.fireworks-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 16;
+  overflow: hidden;
+  pointer-events: none;
+  user-select: none;
+}
+.firework-bloom {
+  position: absolute;
+}
+.firework-bloom span {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--firework-color);
+  box-shadow: 0 0 6px var(--firework-color);
+  opacity: 0;
+  animation: firework-explode 1.8s ease-out var(--firework-delay) both;
+}
+@keyframes firework-explode {
+  0% {
+    opacity: 0;
+    transform: rotate(var(--firework-angle)) translateY(0) scale(0.4);
+  }
+  12% {
+    opacity: 0.9;
+  }
+  70% {
+    opacity: 0.65;
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(var(--firework-angle)) translateY(calc(-1 * var(--firework-distance)))
+      scale(0.2);
+  }
+}
+@media (max-width: 640px) {
+  .firework-bloom {
+    scale: 0.7;
+  }
+}
+@media (prefers-reduced-motion: reduce), print {
+  .fireworks-overlay {
+    display: none;
+  }
+}

@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="dark">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="Iluminação e equipamentos para transformar seu evento. Conheça o catálogo e solicite sua locação na Euro Light." />
+        <link rel="icon" type="image/png" href="/src/assets/logo-euro-l.png" />
+        <link rel="icon" type="image/svg+xml" href="/src/assets/logo-euro-l.svg" />
+        <link rel="apple-touch-icon" href="/src/assets/logo-euro-l.png" />
+        <title>Euro Light | Iluminação para eventos</title>
+        <script>
+            try {
+                document.documentElement.dataset.theme =
+                    localStorage.getItem('eurolight-theme') === 'light' ? 'light' : 'dark';
+            } catch {}
+        </script>
+    </head>
+    <body>
+        <div id="root"></div>
+        <script type="module" src="/src/main.jsx"></script>
+    </body>
+</html>

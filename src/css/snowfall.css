@@ -1,0 +1,44 @@
+.snowfall {
+  position: fixed;
+  inset: 0;
+  z-index: 15;
+  overflow: hidden;
+  pointer-events: none;
+  user-select: none;
+}
+
+.snowfall span {
+  position: absolute;
+  top: -12px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 3px rgb(115 150 180 / 45%);
+  animation: snow-fall linear infinite;
+}
+
+@keyframes snow-fall {
+  from {
+    transform: translate3d(0, -12px, 0);
+  }
+  to {
+    transform: translate3d(var(--snow-drift), calc(100vh + 24px), 0);
+  }
+}
+
+@media (max-width: 640px) {
+  .snowfall span:nth-child(n + 21) {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .snowfall {
+    display: none;
+  }
+}
+
+@media print {
+  .snowfall {
+    display: none;
+  }
+}

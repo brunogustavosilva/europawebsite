@@ -1,0 +1,63 @@
+:root[data-night-sky='true'] {
+  color-scheme: dark;
+  --color-background: #080f24;
+  --color-surface: #121e38;
+  --color-surface-muted: #1b2a47;
+  --color-text: #f2f4ff;
+  --color-muted: #b1bed9;
+  --color-border: #344566;
+  --color-brand-ink: #ffd387;
+  --color-brand-soft: #302b39;
+  --color-danger: #ff9caa;
+  --shadow: 0 18px 60px rgb(0 0 0 / 25%);
+}
+:root[data-night-sky='true'] body {
+  background: var(--color-background);
+}
+#root {
+  isolation: isolate;
+}
+.night-sky {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+}
+.night-sky > span {
+  position: absolute;
+  background: #e5efff;
+  border-radius: 50%;
+  box-shadow: 0 0 5px #c7ddff;
+}
+.night-moon {
+  position: absolute;
+  right: 8%;
+  top: 140px;
+  width: clamp(60px, 8vw, 110px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 30% 35%, #c3cbd8 0 7%, transparent 8%),
+    radial-gradient(circle at 60% 65%, #cbd3df 0 11%, transparent 12%),
+    radial-gradient(circle at 65% 25%, #d1d8e2 0 5%, transparent 6%),
+    radial-gradient(circle at 35% 30%, #fffdf0, #dce4f1 65%, #9fadc5);
+  box-shadow:
+    0 0 40px #bdd6ff33,
+    0 0 100px #bdd6ff1a;
+}
+@media print {
+  .night-sky {
+    display: none;
+  }
+}
+
+/* A camada permanece montada para o céu desaparecer suavemente entre temas. */
+.night-sky {
+  opacity: 0;
+  transition: opacity 650ms ease-in;
+  background: radial-gradient(ellipse at 80% 0%, #203458, #080f24 65%);
+}
+:root[data-night-sky='true'] .night-sky {
+  opacity: 1;
+}

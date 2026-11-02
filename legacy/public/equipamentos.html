@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Encontre equipamentos de iluminação e efeitos para o seu evento.">
+    <title>Equipamentos | Euro Light</title>
+    <link rel="icon" type="image/png" href="/src/assets/logoeurolight.png">
+    <link rel="stylesheet" href="/src/css/index.css">
+    <link rel="stylesheet" href="/src/css/equipamentos.css">
+    <script type="module" src="/src/scripts/equipamentos.js"></script>
+</head>
+<body class="catalog-page">
+    <header class="catalog-header">
+        <a class="catalog-logo" href="/public/home.html" aria-label="Euro Light, página inicial">
+            <img src="/src/assets/logoeurolight.png" alt="Euro Light">
+        </a>
+        <nav class="catalog-nav" aria-label="Navegação principal">
+            <a href="/public/home.html#locar">reservar</a>
+            <a href="/public/home.html#contactCard">entrar em contato</a>
+            <a href="/public/home.html#help">como alugar</a>
+            <a class="is-current" href="/public/equipamentos.html" aria-current="page">equipamentos</a>
+        </nav>
+        <button class="catalog-menu-trigger" id="open-menu" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-menu">
+            <span></span><span></span><span></span>
+        </button>
+    </header>
+
+    <main class="catalog-main">
+        <section class="catalog-intro" aria-labelledby="catalog-title">
+            <h1 id="catalog-title">Encontre a iluminação ideal para sua festa</h1>
+            <p>Veja o efeito de cada equipamento antes de escolher.</p>
+        </section>
+
+        <section class="catalog-tools" aria-label="Busca e organização do catálogo">
+            <label class="search-box">
+                <img src="/src/assets/search.svg" alt="" aria-hidden="true">
+                <input id="equipment-search" type="search" aria-label="Buscar equipamentos por nome, situação ou descrição" placeholder="busque pelas luzes ou equipamento..." autocomplete="off">
+            </label>
+            <div class="filter-control">
+                <button class="filter-button" id="filter-toggle" type="button" aria-expanded="false" aria-controls="category-filters">
+                    <img src="/src/assets/filter-svgrepo-com.svg" alt="" aria-hidden="true">
+                    <span>Filtrar</span>
+                </button>
+                <div class="filter-menu" id="category-filters" role="group" aria-label="Filtrar por categoria" hidden>
+                    <p class="filter-menu-title">Categorias</p>
+                    <label><input type="checkbox" value="luzes"> <span>Luzes</span></label>
+                    <label><input type="checkbox" value="som"> <span>Som</span></label>
+                    <label><input type="checkbox" value="video-imagem"> <span>Vídeo e imagem</span></label>
+                    <label><input type="checkbox" value="audio"> <span>Áudio</span></label>
+                    <label><input type="checkbox" value="estrutura"> <span>Estrutura</span></label>
+                </div>
+            </div>
+            <label class="sort-control">
+                <span class="sr-only">Ordenar equipamentos</span>
+                <select id="equipment-sort">
+                    <option value="popular">Mais populares</option>
+                    <option value="price-desc">Preço mais caro</option>
+                    <option value="price-asc">Preço mais barato</option>
+                </select>
+                <img src="/src/assets/down-arrow-backup-2-svgrepo-com.svg" alt="" aria-hidden="true">
+            </label>
+        </section>
+
+        <p class="catalog-count" id="catalog-count" aria-live="polite"></p>
+        <section class="equipment-grid" id="equipment-grid" aria-label="Equipamentos disponíveis"></section>
+        <p class="empty-state" id="empty-state" hidden>Nenhum equipamento encontrado. Tente buscar por outro nome ou termo.</p>
+    </main>
+
+    <button class="catalog-bag" id="open-cart" type="button" aria-label="Abrir sacola de locação" aria-haspopup="dialog" aria-controls="cart-drawer">
+        <img src="/src/assets/bag.svg" alt="" aria-hidden="true">
+        <span class="cart-badge" id="cart-badge" aria-live="polite" hidden>0</span>
+    </button>
+
+    <div class="cart-backdrop" id="cart-backdrop" hidden></div>
+    <aside class="cart-drawer" id="cart-drawer" role="dialog" aria-modal="true" aria-labelledby="cart-title" aria-hidden="true" inert>
+        <header class="cart-header">
+            <button class="cart-close" id="close-cart" type="button" aria-label="Fechar sacola">×</button>
+            <div class="cart-heading-row">
+                <h2 id="cart-title">Sua sacola</h2>
+                <div class="cart-heading-bag" aria-hidden="true">
+                    <img src="/src/assets/bag.svg" alt="">
+                    <span class="cart-heading-count" id="cart-heading-count">0</span>
+                </div>
+            </div>
+        </header>
+        <div class="cart-content">
+            <p class="cart-empty" id="cart-empty">Sua sacola está vazia. Escolha os equipamentos que deseja alugar.</p>
+            <div class="cart-items" id="cart-items" aria-live="polite"></div>
+        </div>
+        <footer class="cart-footer">
+            <div class="cart-total"><span>Total</span><strong id="cart-total">R$ 0,00</strong></div>
+            <a class="cart-checkout" id="cart-continue" href="/public/locacao.html" aria-disabled="true" tabindex="-1">
+                <img src="/src/assets/white-whatsapp.png" alt="" aria-hidden="true">
+                <span>Alugar</span>
+            </a>
+        </footer>
+    </aside>
+    <div class="cart-announcement sr-only" id="cart-announcement" aria-live="polite"></div>
+
+    <div class="menu-backdrop" id="menu-backdrop" hidden></div>
+    <aside class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Menu de navegação" aria-hidden="true" inert>
+        <div class="mobile-menu-header">
+            <img src="/src/assets/logoeurolight.png" alt="Euro Light">
+            <button class="mobile-menu-close" id="close-menu" type="button" aria-label="Fechar menu">×</button>
+        </div>
+        <nav class="mobile-menu-links" aria-label="Navegação principal">
+            <a href="/public/home.html#locar">reservar</a>
+            <a href="/public/home.html#contactCard">entrar em contato</a>
+            <a href="/public/home.html#help">como alugar</a>
+            <a class="is-current" href="/public/equipamentos.html" aria-current="page">equipamentos</a>
+        </nav>
+    </aside>
+</body>
+</html>

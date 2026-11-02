@@ -1,0 +1,68 @@
+@media (max-width: 1320px) {
+    .navbar {
+        display: none !important;
+    }
+
+    .home-section {
+        height: 750px;
+    }
+
+    .card {
+        p {
+            font-size: 25px;
+        }
+
+        span {
+            font-size: 28px;
+        }
+
+        button {
+            font-size: 40px;
+        }
+    }
+
+}
+
+@media (max-width: 830px) {
+    .helpSection .card {
+        height: 1300px;
+    }
+
+    .home-section {
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        height: 100vh;
+    }
+
+    .main-content {
+        margin: 0 !important;
+        margin-bottom: 200px !important;
+    }
+
+    .main-text {
+        font-size: 60px !important;
+    }
+
+    #homebutton {
+        width: 400px;
+        h2 {
+            font-size: 28px !important;
+        } 
+    }
+
+    .card {
+        height: 115vh;
+    }
+
+    .contact-card {
+        bottom: auto;
+        top: 30px;
+    }
+}
+
+@media (max-width: 600px) {
+        .helpSection .card {
+        height: 1600px;
+    }
+}

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eurolight</title>
+    <link rel="stylesheet" href="/src/css/index.css">
+    <link rel="icon" type="image/png" href="/src/assets/logoeurolight.png">
+    <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
+</head>
+<body>
+    <div class="home-section">
+        <div class="navbar">
+        <div class="logo">
+            <img src="/src/assets/logoeurolight.png" alt="">
+        </div>
+            <ul>
+                <li>
+                    <a href="">home</a>
+                </li>
+                <li>
+                    <a href="https://wa.me/5541998626862?text=Oi%21%20Estou%20com%20d%C3%BAvidas%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20a%20Euro%20Light." target="_blank" rel="noopener noreferrer">entrar em contato</a>
+                </li>
+                <li>
+                    <a href="#help">como alugar</a>
+                </li>
+                <li>
+                    <a href="/public/equipamentos.html">equipamentos</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="main-content">
+         <h1 class="main-text">
+            TRANSFORME SEU EVENTO<br>
+            EM UMA EXPERIÊNCIA <span>COMPLETA</span>
+         </h1>
+
+        <button class="mainbutton" id="homebutton" onclick="document.querySelector('#locar').scrollIntoView()">
+            <h2>RESERVAR <span>↗</span></h2></button>
+        </div>
+    </div>
+    <div class="helpSection">
+        <div class="yellow-glow"></div>
+        <div class="card" id="help">
+            <img src="/src/assets/questionandquote.svg" alt="">
+         <h1>Como funciona?</h1>
+
+         <div class="step">
+            <span>1. Reserve sua data</span>
+            <p>
+             Você escolhe os equipamentos e reserva a data do seu evento
+             sem nenhum custo (sinal apenas para datas comemorativas).
+            </p>
+         </div>
+
+         <div class="step">
+            <span>2. Documentação e pagamento</span>
+            <p>
+             Para finalizar a locação, é necessário apresentar um documento
+                de identidade e um comprovante de residência em seu nome, como
+             conta de água, luz ou internet. O pagamento é realizado previamente.
+            </p>
+         </div>
+
+          <div class="step">
+            <span>3. Retirada ou entrega</span>
+            <p>
+                No dia combinado para a retirada ou entrega dos equipamentos,
+                fazemos o contrato com os dados do responsável pela locação.
+            </p>
+         </div>
+
+         <div class="step">
+    <span>4. Período de utilização</span>
+    <p>
+        Para facilitar a organização do seu evento, os equipamentos podem
+        ser retirados ou entregues até 1 dia antes da data do evento e
+        devolvidos até 2 dias depois.
+    </p>
+         </div>
+          <button class="catalog" onclick="document.querySelector('#locar').scrollIntoView()">
+            CATALOGO
+          </button>
+        </div>
+    </div>
+
+    <section class="locar" id="locar" aria-labelledby="rental-title">
+        <div class="glow glow-red"></div>
+        <div class="glow glow-blue"></div>
+        <div class="booking-cta">
+            <div class="booking-copy">
+                <p class="booking-eyebrow"><span></span> EQUIPAMENTOS PARA EVENTOS</p>
+                <h2 id="rental-title">A luz certa transforma qualquer festa.</h2>
+                <p class="booking-description">
+                    Explore equipamentos, efeitos e kits em um só lugar. Compare as opções e encontre a combinação ideal para o seu evento.
+                </p>
+                <a class="booking-cta-button" href="/public/equipamentos.html">
+                    <span>Explorar locação</span>
+                    <span class="booking-arrow" aria-hidden="true">↗</span>
+                </a>
+                <p class="booking-note">Escolha seus equipamentos e monte sua sacola no catálogo.</p>
+            </div>
+            <div class="booking-showcase" aria-hidden="true">
+                <div class="showcase-glow"></div>
+                <div class="showcase-ring showcase-ring-outer"></div>
+                <div class="showcase-ring showcase-ring-inner"></div>
+                <img src="/src/assets/holofote.png" alt="">
+                <div class="showcase-label"><span></span> SUA PRÓXIMA EXPERIÊNCIA COMEÇA AQUI</div>
+            </div>
+        </div>
+    </section>
+
+
+<div class="contact-card" id="contactCard">
+    <div class="contact-info">
+        <div class="calendar-icon">
+            <img src="/src/assets/calendar.svg" alt="">
+        </div>
+        <div>
+            <h3>Não encontrou o que procurava?</h3>
+            <p>Fale com nossa equipe e consulte mais opções de equipamentos</p>
+        </div>
+    </div>
+    <a class="contact-button" href="https://wa.me/5541998626862?text=Oi%21%20Estou%20com%20d%C3%BAvidas%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20a%20Euro%20Light." target="_blank" rel="noopener noreferrer">
+        Entrar em contato
+    </a>
+</div>
+
+
+    <script>
+        ScrollReveal().reveal('.step', {
+            distance: '50px',
+            duration: 1000,
+            origin: 'top',
+            reset: true,
+            delay: 100
+        });
+        ScrollReveal().reveal('.booking-cta', {
+            distance: '50px',
+            duration: 1000,
+            origin: 'bottom',
+            reset: true,
+            delay: 250
+        });
+    </script>
+    <script src="/src/scripts/popup.js" defer></script>
+</body>
+</html>

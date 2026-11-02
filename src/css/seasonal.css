@@ -1,0 +1,70 @@
+.seasonal-banner {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  padding: 20px;
+  text-align: center;
+  color: #fff8e4;
+  border-bottom: 1px solid #bca065;
+}
+.seasonal-banner--christmas {
+  background: linear-gradient(110deg, #183f32, #205440 55%, #632b31);
+}
+.seasonal-banner--new-year {
+  background: linear-gradient(110deg, #16182c, #35254b 55%, #453319);
+}
+.seasonal-banner strong {
+  font-size: clamp(1.1rem, 3vw, 1.5rem);
+}
+.seasonal-banner p {
+  font-size: 0.85rem;
+}
+.seasonal-emojis {
+  font-size: clamp(1.5rem, 4vw, 2.4rem);
+  white-space: nowrap;
+}
+.seasonal-fireworks {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+.seasonal-burst {
+  position: absolute;
+  left: calc(15% + var(--burst) * 35%);
+  top: 50%;
+}
+.seasonal-burst i {
+  position: absolute;
+  width: 3px;
+  height: 12px;
+  border-radius: 100%;
+  background: #f6ca74;
+  opacity: 0;
+  transform: rotate(calc(var(--ray) * 45deg)) translateY(-12px);
+  animation: seasonal-spark 2s ease-out 2;
+  animation-delay: calc(var(--burst) * 0.3s);
+}
+@keyframes seasonal-spark {
+  15% {
+    opacity: 0.8;
+  }
+  85%,
+  100% {
+    opacity: 0;
+    transform: rotate(calc(var(--ray) * 45deg)) translateY(-65px) scale(0.4);
+  }
+}
+@media (max-width: 480px) {
+  .seasonal-banner {
+    gap: 10px;
+    padding: 16px 12px;
+  }
+  .seasonal-banner p {
+    font-size: 0.75rem;
+  }
+}
